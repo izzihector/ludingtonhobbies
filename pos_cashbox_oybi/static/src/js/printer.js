@@ -46,8 +46,8 @@ var CashboxEpsonPrinter = core.Class.extend(PrinterMixin, {
         if (this.printer) {
             this.printer.addPulse();
             this.printer.send();
+            alert('Cashbox opened.')
         }
-        alert('Cashbox opened.')
     },
 });
 
