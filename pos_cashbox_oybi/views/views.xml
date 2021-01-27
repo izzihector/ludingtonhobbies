@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='open_session_cb']" position="after">
-                <button t-if="!record.current_session_id.raw_value &amp;&amp; !record.pos_session_username.value" class="btn btn-secondary o_kanban_inline_block" name="open_backend_cb" type="object">Open Cashbox</button>
+                <button t-if="!record.current_session_id.raw_value &amp;&amp; !record.pos_session_username.value" class="btn btn-secondary o_kanban_inline_block" name="open_backend_cashdrawer" type="object">Open Cashbox</button>
             </xpath>
         </field>
     </record>
