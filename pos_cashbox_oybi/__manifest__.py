@@ -16,5 +16,6 @@
     'depends': ['base', 'pos_iot'],
     'data': [
         'views/views.xml',
+        'views/templates.xml',
     ],
 }

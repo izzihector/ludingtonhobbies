@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="oybi_assets_backend" name="oybi assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <t t-call-assets="point_of_sale.assets"/>
+                <script type="text/javascript" src="/pos_cashbox_oybi/static/src/js/cashbox_backend.js"></script>
+                <script type="text/javascript" src="/pos_cashbox_oybi/static/src/js/printer.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>
