@@ -1,4 +1,5 @@
 #-*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import logging
 
@@ -17,12 +18,11 @@ class PosConfig(models.Model):
 
         if not self:
             return False
-        if not self.epson_printer_ip:
-            raise ValidationError('No printer configured on this PoS Station. Please set up the IP address of the printer in the session\'s Settings.')
+        if not self.iface_printer_id or not self.iface_printer_id.iot_id or not self.iface_printer_id.iot_id.ip:
+            raise ValidationError('No printer configured on this PoS Station. Please configure the printer in this station\'s IoT box Settings.')
 
         return {
             'type': 'ir.actions.client',
-            'target': 'current',
             'tag': 'pos_cashbox_oybi.cashbox_backend',
-            'params': {'ip': self.epson_printer_ip}
+            'params': {'iot_ip': self.iface_printer_id.iot_id.ip, 'identifier': self.iface_printer_id.identifier}
         }
