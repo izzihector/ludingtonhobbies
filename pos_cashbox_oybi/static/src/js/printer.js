@@ -1,7 +1,6 @@
 odoo.define('pos_cashbox_oybi.Printer', function (require) {
 "use strict";
 
-
 var core = require('web.core');
 var DeviceProxy = require('iot.widgets').DeviceProxy;
 var IoTLongpolling = require('iot.widgets').IoTLongpolling;
@@ -35,12 +34,14 @@ IoTLongpolling.include({
                 posmodel.proxy.proxy_connection_status(iot_ip, true);
             }
             alert("Success connecting to printer!");
-            
+            window.location = "/web#action=point_of_sale.action_client_pos_menu";
+
         }).guardedCatch(function () {
             if (typeof posmodel !== 'undefined') {
                 posmodel.proxy.proxy_connection_status(iot_ip, false);
             }
             alert("Failure to connect to printer");
+            window.location = "/web#action=point_of_sale.action_client_pos_menu";
         });
         return prom;
     },
