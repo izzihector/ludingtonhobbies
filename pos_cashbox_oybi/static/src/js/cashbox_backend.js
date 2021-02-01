@@ -15,7 +15,6 @@ var OpenCashboxBackend = AbstractAction.extend({
     start:function(){
         var cashbox = new BackendPrinterProxy({iot_ip: this.iot_ip, identifier: this.identifier});
         cashbox.open_cashbox();
-        window.location = "/web#action=point_of_sale.action_client_pos_menu";
     },
 });
 core.action_registry.add('pos_cashbox_oybi.cashbox_backend', OpenCashboxBackend);
